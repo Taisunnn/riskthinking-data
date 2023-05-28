@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  airflow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["start"]
+    volumes:
+      - "./dags:/root/dags"
+      - "./model:/root/model"
+      - "./data_in:/root/data_in"
+      - "./logs/stockmarket:/root/logs/dag_id=stockmarket_pipeline"
+    ports:
+      - "8080:8080"
+    environment:     
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__DAG_DIR_LIST_INTERVAL: 15
+      KAGGLE_USERNAME: ${KAGGLE_USERNAME}
+      KAGGLE_KEY: ${KAGGLE_KEY}
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    volumes:
+      - "./app:/root/app"
+      - "./model:/root/model"
+    ports:
+      - "8000:8000"
