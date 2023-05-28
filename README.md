@@ -24,7 +24,6 @@ make test (runs pytest within the container)
 make lint (runs flake8 within the container)
 ```
 ## Accessing Web Servers
-___
 
 ### Airflow UI
 
