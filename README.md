@@ -1,6 +1,6 @@
 # Stockmarket Ingestion and Machine Learning (RiskThinkingAI)
 
-This is a pipeline that downloads stock market data from Kaggle, transforms the data, and trains a model on the transformed data.
+This Airflow pipeline automates the process of downloading data from Kaggle using the Kaggle API, performing data transformation with Pandas and Polars and training a machine learning model using scikit-learn (sklearn). It streamlines the end-to-end data workflow, ensuring efficient data processing and model training.
 ___
 # Getting Started
 
